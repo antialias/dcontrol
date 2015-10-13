@@ -5,6 +5,8 @@ var mkdirp = require('mkdirp');
 var path = require('path');
 var running = require('is-running');
 var exec = require('child_process').exec;
+var assert = require('assert');
+var childProcess = require('child_process');
 var Promise = require('es6-promise').Promise;
 describe('daemon controller', function () {
     var mfs;
@@ -60,6 +62,24 @@ describe('daemon controller', function () {
             mock.expects('_startDaemon').once();
             control.ensureRunning();
             mock.verify();
+        });
+        describe('_startDaemon', function () {
+            it('should record the daemon process id when starting a new daemon', sinon.test(function () {
+                var goodpid = '987654321';
+                var garbagepid = '1234567890';
+                var daemonpid;
+                this.stub(childProcess, 'spawn', function () {
+                    return {
+                        unref: function () {},
+                        pid: goodpid
+                    };
+                });
+                this.stub(control, '_getDaemonStdio', function () {return 'inherit'});
+                mfs.writeFileSync(config.pidpath, garbagepid);
+                control.ensureRunning();
+                daemonpid = mfs.readFileSync(config.pidpath, 'utf8');
+                assert.equal(daemonpid, goodpid, 'pid from child process was not used');
+            }));
         });
     });
 });
