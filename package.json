@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha",
+    "test-watch": "node_modules/mocha/bin/mocha --watch"
+  },
+  "main": "control.js",
+  "dependencies": {
+    "dnode": "^1.2.2",
+    "es6-promise": "^3.0.2",
+    "is-running": "^2.0.0",
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "memory-fs": "git+ssh://git@github.com:webpack/memory-fs",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.1"
+  }
+}
