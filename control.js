@@ -8,7 +8,7 @@ var Control = module.exports = function (config) {
     this._config = config;
 };
 Control.prototype._startDaemon = function () {
-    var child = childProcess.spawn('node', ['./daemon.js'], {
+    var child = childProcess.spawn('node', [path.join(process.cwd(), this._config.daemonModulePath)], {
         stdio: this._getDaemonStdio(),
         detached: true
     });

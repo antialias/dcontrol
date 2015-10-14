@@ -4,10 +4,12 @@
     "test-watch": "node_modules/mocha/bin/mocha --watch"
   },
   "main": "control.js",
+  "bin": "control-cli.js",
   "dependencies": {
     "dnode": "^1.2.2",
     "es6-promise": "^3.0.2",
     "is-running": "git+ssh://git@github.com:antialias/is-running#feature-stubbable",
+    "minimist": "^1.2.0",
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {

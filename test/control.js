@@ -23,6 +23,7 @@ describe('daemon controller', function () {
         daemonRunning = false;
         mfs = new MemoryFileSystem();
         config = {
+            daemonModulePath: './testDaemon',
             fs: mfs,
             pidpath: '/test/pid/path'
         };
