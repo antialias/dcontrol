@@ -7,7 +7,7 @@
   "dependencies": {
     "dnode": "^1.2.2",
     "es6-promise": "^3.0.2",
-    "is-running": "^2.0.0",
+    "is-running": "git+ssh://git@github.com:antialias/is-running#feature-stubbable",
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
