@@ -4,7 +4,9 @@
     "test-watch": "node_modules/mocha/bin/mocha --watch"
   },
   "main": "control.js",
-  "bin": "control-cli.js",
+  "bin": {
+    "dcontrol": "control-cli.js"
+  },
   "dependencies": {
     "dnode": "^1.2.2",
     "es6-promise": "^3.0.2",
@@ -16,5 +18,26 @@
     "memory-fs": "git+ssh://git@github.com:webpack/memory-fs",
     "mocha": "^2.3.3",
     "sinon": "^1.17.1"
-  }
+  },
+  "name": "dcontrol",
+  "version": "1.0.0",
+  "description": "spawns and manages daemons via pid files and a config file",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antialias/dcontrol.git"
+  },
+  "keywords": [
+    "daemon",
+    "spawner",
+    "init.d"
+  ],
+  "author": "Thomas Hallock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antialias/dcontrol/issues"
+  },
+  "homepage": "https://github.com/antialias/dcontrol"
 }
